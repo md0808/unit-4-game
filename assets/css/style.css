@@ -1,0 +1,87 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    background-blend-mode: hard-light;
+    background-image: url("https://res.cloudinary.com/jrying/image/upload/q_auto:good/v1493223181/mXd5dMn_gqciqp.png");
+    padding: 0;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'BPneon', 'Comfortaa', cursive;
+    letter-spacing: 3px;
+  }
+
+  
+  .title-sign {
+    padding-top: 20px;
+    text-align: center;
+    margin: 0 auto;
+    color: rgba(50, 255, 193, 0.9);
+    text-shadow: 
+      0 0 5px rgba(37, 206, 155, 0.9),
+      0 0 28px rgba(30, 114, 170, 0.9),
+      0 8px 38px rgb(149, 196, 176),
+      0 8px 10px black,
+      0 2px 12px black,
+      0 0 50px rgba(154, 199, 133, 0.5),
+      0 0 24px rgba(255,255,255,0.8);
+    -webkit-text-stroke: 1px rgba(47, 0, 255, 0.281);
+  }
+
+  h2{
+    font-size: 20px;
+    color: #d9d0c6;
+    text-align: center;
+
+  }
+
+  h4 {
+      font-size: 10px;
+      color: #d9d0c6;
+      text-align: center;
+      line-height: 20px;
+
+
+  }
+  
+  .container {
+    padding: 20px;
+    margin: 0 auto;
+
+  }
+
+  .row{
+      padding-bottom: 20px
+  }
+  #magic-number{
+    font-size: 25px;
+    color: #92c2c9;
+    text-align: center;
+  }
+#accumulative-number {
+  color: #92c2c9;
+
+}
+
+  #instructions {
+    text-align: center;
+    color: #d9d0c6;
+    line-height: 20px;
+  }
+
+  #scoreboard{
+    color: #d9d0c6;
+    margin: 0 auto;
+  }
+  
+
+  #crystal-images{
+    margin: 0 auto;
+
+  }
+  .crystals{
+    border-radius: 20%;
+    max-height: 200px;
+    margin: 0 auto;
+  }

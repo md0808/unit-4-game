@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <title>Crystal Collector</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Wire+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+
+
+  </head>
+
+  <body>
+
+
+    <div class="container">
+
+            <div class="row">
+                <div class="title-sign">Crystal Collector</div>
+            </div>
+
+
+            <div class="row" id="instructions">
+                    <div class="col-md-2">  
+                    </div>
+                    <div class="col-md-8"> 
+                       
+                        <h4>You will be given a random number at the start of the game. There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.
+                        You win the game by matching your total score to the random number selected. You lose the game if your total score
+                            goes above the random number. The value of each crystal is hidden from you until you click on it. Each time the game starts, the value of each crystal will change.</h4>
+                    </div>
+                    <div class="col-md-2">  
+                    </div>
+            </div>
+
+
+
+            <div class="row" >
+                <div class="col-sm-12">
+                    <h2><span>Number to find: </span> <span id="magic-number"></span></h2>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-sm-12">
+                    <h2> <span id="outcome"></span></h2>
+                </div>
+            </div>
+
+            <div class=row id="scoreboard">
+                <div class="col-md-3 col-sm-12">
+                </div>
+
+                <div class="col-md-2 col-sm-12"> 
+                    <h2>Your total number: <span id="accumulative-number"></span></h2>
+                </div>
+
+                <div class="col-md-2 col-sm-12"> 
+                    <h2>Game Wins: <span id="wins"></span></h2>
+                </div>
+
+                <div class="col-md-2 col-sm-12"> 
+                    <h2>Game Losses: <span id="losses"></span></h2> 
+                </div> 
+                   
+                <div class="col-md-3 col-sm-12">
+                </div> 
+            </div>   
+
+
+            <div class="row" id="crystal-images">
+                <div class="col-md-1 col-sm-12">
+                </div> 
+
+                <div class="col-md-10 col-sm-12">   
+
+                    <span id="crystal-one"> <img src="./assets/images/crystal1.jpeg" class="crystals"> </span>
+                    <span id="crystal-two"> <img src="./assets/images/crystal2.jpeg" class="crystals"> </span>
+                    <span id="crystal-three"> <img src="./assets/images/crystal3.jpeg" class="crystals"> </span>
+                    <span id="crystal-four"> <img src="./assets/images/crystal4.jpeg" class="crystals"> </span>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                </div>  
+            </div>
+
+
+    </div> <!--Container-->
+
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+
+    <script type="text/javascript" src="./assets/javascript/game2.js"></script>
+
+  </body>
+
+</html>
