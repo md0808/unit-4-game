@@ -1,171 +1,121 @@
-//computer selects a random number as the magic number ---
-
-//each of the 4 crystals is assigned a number between 1-12 ---
-
-//when the crystals are clicked on, the number that is randomly assigned is added to the total number
-
-//if the total number === random number, user wins.
-    //User is congratulated,
-    // wins ++
-    //game restarts with new numbers
-
-//if the total number > random number, user looses.
-    //User is told they lost,
-    // losses ++
-    //game restarts with new numbers
+//global variables==========================
 
 
-
-
-
-//Global Variables===============================================================
-
-//these variables will continue to accumulate with each round
 var wins = 0;
 var losses = 0;
 
-var magicNumber = 0;
-
+// the number that the user is trying to achieve. 27 is just for text purposes, but is later randomly generated.
+var magicNumber = 27;
+// the number that the user currently has
 var userNumber = 0;
 
 var crystal = {
-    crystalOne :
+    purple :
         { value : 0},
-    crystalTwo :
+    peach :
         { value : 0},
-    crystalThree :
+    green :
         { value : 0},
-    crystalFour :
+    red :
         { value : 0}   
 };
 
 
+//functions=============================================
 
 
 
-//Functions===============================================================
 function getRandomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
 
-
-function startGame (){
-    //outcome div is cleared
+setTimeout(resetText, 3000);
+function resetText() {
     $("#outcome").text("");
-    //resets the accumulative number back to zero at each round
-    var userNumber = 0; 
-    //sets the number to try to create to a number between 19- 120
-    var magicNumber = getRandomNumber(19, 120);
-    //number is given to #magic-number so that the user can see what they are trying to create
+    console.log("3 seconds")
+}
+
+function startGame(){
+    resetText();
+     userNumber =        0;
+     magicNumber =       getRandomNumber(19,120);
+    //magic number is not changing the global variable.
+    crystal.purple.value =  getRandomNumber(1,12);
+    crystal.peach.value =   getRandomNumber(1,12);
+    crystal.green.value =   getRandomNumber(1,12);
+    crystal.red.value =     getRandomNumber(1,12);
+
+    //testing -----------------------------------
+    console.log("--------------");
+    console.log("Magic Number is: " + magicNumber);
+    console.log("Purple " + crystal.purple.value);
+    console.log("Peach " + crystal.peach.value);
+    console.log("green "  + crystal.green.value);
+    console.log("--------------");
+
     $("#magic-number").html(magicNumber);
+    $("#accumlative-number").html(userNumber);
 
-    
-    // the values nested within the crystal object are given random values between 1 and 12 by being sent through the random number function
-    crystal.crystalOne.value = getRandomNumber(1,12);
-    crystal.crystalTwo.value = getRandomNumber(1,12);
-    crystal.crystalThree.value = getRandomNumber(1,12);
-    crystal.crystalFour.value = getRandomNumber(1,12);
-
-    console.log("Magic number is: " + magicNumber);
-    console.log(crystal.crystalOne.value);
-    console.log(crystal.crystalTwo.value);
-    console.log(crystal.crystalThree.value);
-    console.log(crystal.crystalFour.value);
  
- }
 
- function determineOutcome () {
+}
+
+function addCrystals(crystal){
+    //updates current score
+    userNumber= userNumber + crystal.value;
+    
+    //changes interface
+    $("#accumulative-number").html(userNumber)
+    //calls the function that looks at the wins and losses
+    determineOutcome();
+
+    console.log("Your score is " + userNumber + " and magic number is: " + magicNumber);
+    
+}
+
+
+// !!This is not working yet. Its taking the original value assigned to magicNumber rather than the value generated through getRandomNumber
+function determineOutcome () {
     if (userNumber > magicNumber) {
         losses++;
         $("#outcome").text("You lost! Try again.");
         console.log (losses + " sorry, you lost");
+        $("#losses").html(losses);
+        startGame();
+    
     }
-    if (userNumber === magicNumber){
+    else if (userNumber == magicNumber){
         wins++;
         $("#outcome").text("You win!");
         console.log (wins + "Hey, you win!");
+        $("#wins").html(wins)
+        startGame();
     }
-    else if (userNumber < magicNumber){
-        $("#outcome").text("");
-        }
-   
-   
- }
-//  var addCrystals = function (){
-//     $("#crystal-one").on("click", function(){
-//         userNumber = userNumber +crystal.crystalOne.value;
-//         console.log("your score =" + userNumber);
-//         $("#accumulative-number").html(userNumber);
-//     })
-    
-//     $("#crystal-two").on("click", function(){
-//         userNumber = userNumber +crystal.crystalTwo.value;
-//         console.log("your score =" + userNumber);
-//         $("#accumulative-number").html(userNumber);
-//     })
-    
-//     $("#crystal-three").on("click", function(){
-//         userNumber = userNumber +crystal.crystalThree.value;
-//         console.log("your score =" + userNumber);
-//         $("#accumulative-number").html(userNumber);
+}
 
-//     })
-    
-//     $("#crystal-four").on("click", function(){
-//         userNumber = userNumber + crystal.crystalFour.value;
-//          console.log("your score =" + userNumber);
-//          $("#accumulative-number").html(userNumber);
-
-//     })
-// }
-
-
-//  function newRound (){
-// // on click of any of the crystals, the outcome div changes
-
-//  }
-
-
-
-//Process and interactivity===============================================================
-
+//main process====================================
 
 startGame();
-// addCrystals ();
 
-$("#crystal-one").on("click", function(){
-    userNumber = userNumber +crystal.crystalOne.value;
-    console.log("your score =" + userNumber);
-    $("#accumulative-number").html(userNumber);
-    determineOutcome();
 
+$("#purple").click(function(){
+    console.log("purple");
+    addCrystals(crystal.purple)
 })
 
-$("#crystal-two").on("click", function(){
-    userNumber = userNumber +crystal.crystalTwo.value;
-    console.log("your score =" + userNumber);
-    $("#accumulative-number").html(userNumber);
-    determineOutcome();
-
+$("#peach").click(function(){
+    console.log("peach");
+    addCrystals(crystal.peach)
 })
 
-$("#crystal-three").on("click", function(){
-    userNumber = userNumber +crystal.crystalThree.value;
-    console.log("your score =" + userNumber);
-    $("#accumulative-number").html(userNumber);
-    determineOutcome();
-
+$("#green").click(function(){
+    console.log("green");
+    addCrystals(crystal.green)
 })
 
-$("#crystal-four").on("click", function(){
-    userNumber = userNumber + crystal.crystalFour.value;
-     console.log("your score =" + userNumber);
-     $("#accumulative-number").html(userNumber);
-     determineOutcome();
-
+$("#red").click(function(){
+    console.log("red");
+    addCrystals(crystal.red)
 
 })
-
-$("#wins").html(wins);
-$("#losses").html(losses);
