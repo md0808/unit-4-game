@@ -17,9 +17,9 @@ body {
     padding-top: 20px;
     text-align: center;
     margin: 0 auto;
-    color: rgba(50, 255, 193, 0.9);
+    color: #32ffc1e6;
     text-shadow: 
-      0 0 5px rgba(37, 206, 155, 0.9),
+      0 0 5px #25c3cee6,
       0 0 28px rgba(30, 114, 170, 0.9),
       0 8px 38px rgb(149, 196, 176),
       0 8px 10px black,
@@ -51,18 +51,28 @@ body {
 
   }
 
+  #button-row{
+    text-align: center;
+  }
+  #button {
+    background-color: #25c3cee6;
+    border: none;
+  }
+
   .row{
       padding-bottom: 20px
   }
+
   #magic-number{
     font-size: 25px;
     color: #92c2c9;
     text-align: center;
   }
+
 #accumulative-number {
   color: #92c2c9;
-
 }
+
 
   #instructions {
     text-align: center;

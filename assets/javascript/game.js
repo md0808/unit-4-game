@@ -23,24 +23,24 @@ var crystal = {
 
 //functions=============================================
 
-
+//hides content of game until the button is clicked
+$("#content").hide();
+//upon clicking the button, the content is shown, and the button is hidden.
+$("#button").on("click", function(event){
+    $("#content").show();
+    $("#button").hide();
+});
 
 function getRandomNumber(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
 
-setTimeout(resetText, 3000);
-function resetText() {
-    $("#outcome").text("");
-    console.log("3 seconds")
-}
 
 function startGame(){
-    resetText();
+    $("#outcome").text("");
      userNumber =        0;
      magicNumber =       getRandomNumber(19,120);
-    //magic number is not changing the global variable.
     crystal.purple.value =  getRandomNumber(1,12);
     crystal.peach.value =   getRandomNumber(1,12);
     crystal.green.value =   getRandomNumber(1,12);
@@ -75,14 +75,14 @@ function addCrystals(crystal){
 }
 
 
-// !!This is not working yet. Its taking the original value assigned to magicNumber rather than the value generated through getRandomNumber
 function determineOutcome () {
     if (userNumber > magicNumber) {
         losses++;
         $("#outcome").text("You lost! Try again.");
         console.log (losses + " sorry, you lost");
         $("#losses").html(losses);
-        startGame();
+        // 
+        setTimeout (startGame, 2000);
     
     }
     else if (userNumber == magicNumber){
@@ -90,7 +90,7 @@ function determineOutcome () {
         $("#outcome").text("You win!");
         console.log (wins + "Hey, you win!");
         $("#wins").html(wins)
-        startGame();
+        setTimeout (startGame, 2000);
     }
 }
 
